@@ -1,0 +1,6 @@
+<launch>
+    <include file="$(find human_detection_and_localization_config)/launch/kinect.launch"/>
+    
+     
+</launch>
+     
