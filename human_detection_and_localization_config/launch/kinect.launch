@@ -1,0 +1,15 @@
+ <launch>
+     
+          
+    <!-- Include official launch file and specify camera_info urls -->
+    <include file="$(find openni_launch)/launch/openni.launch">
+        <!-- provide arguments to that launch file -->        
+        
+        <arg name="rgb_camera_info_url"
+        value="file://$(find human_detection_and_localization_config)/config/rgb_0000000000000000.yaml" />
+        <arg name="depth_camera_info_url"
+        value="file://$(find human_detection_and_localization_config)/config/depth_0000000000000000.yaml" />
+        
+        <arg name="depth_registration" value="true"/>
+    </include>
+</launch>
