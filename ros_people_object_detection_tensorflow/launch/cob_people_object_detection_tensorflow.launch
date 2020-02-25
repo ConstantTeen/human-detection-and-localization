@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<launch>
+    <node name="camera" pkg="usb_cam" type="usb_cam_node" output="log" ns="/" clear_params="true" respawn="false" required="false" launch-prefix="" >
+        <param name="video_device" value="/dev/video0" />
+        <param name="image_width" value="640" />
+        <param name="image_height" value="480" />
+        <param name="framerate" value="30" />
+        <param name="camera_frame_id" value="usb_cam" />
+        <param name="pixel_format" value="yuyv" />
+    </node>
+    
+  <node name="cob_people_object_detection_detection" pkg="cob_people_object_detection_tensorflow" type="cob_people_object_detection_tensorflow.py" output="screen">
+    <rosparam command="load" file="$(find cob_people_object_detection_tensorflow)/launch/cob_people_object_detection_tensorflow_params.yaml"/>
+    <remap from="image_raw" to="/camera/image_raw"/>
+  </node>
+</launch>
