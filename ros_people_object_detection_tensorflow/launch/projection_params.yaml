@@ -1,17 +1,22 @@
 # Set your depth image topic here, default is for openni2
-depth_topic: "/camera/depth_registered/hw_registered/image_rect"
+depth_topic: '/camera/depth_registered/image_raw'
+# "/camera/depth_registered/hw_registered/image_rect"
 
 # Set your face detection topic here
-face_topic: "/face_recognizer/faces"
+#face_topic: "/face_recognizer/faces"
+people_topic: '/object_detection/detections'
 
 # Set your output topic here
 output_topic: "/face_recognizer/faces/realworld/position"
 
-# Set your depth focal length
-focal_length: 587.8
+# Set your camera info topic here
+camera_topic: '/target_camera/camera_info'
 
-# cx of depth camera
-cx: 351
+## Set your depth focal length
+#focal_length: 587.8
 
-# cy for depth camera
-cy: 227
+## cx of depth camera
+#cx: 351
+
+## cy for depth camera
+#cy: 227

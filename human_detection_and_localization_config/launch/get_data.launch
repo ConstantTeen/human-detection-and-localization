@@ -5,16 +5,26 @@
     <include file="$(find human_detection_and_localization_config)/launch/kinect.launch"/>
     
     <node name="target_camera" pkg="usb_cam" type="usb_cam_node" output="$(arg output)" clear_params="true" respawn="false" required="false" launch-prefix="" >
-        <param name="video_device" value="/dev/video0" />
+        <param name="video_device" value="/dev/video0" /><!-- value="/dev/video[integer]" usually it's 0 or 1/-->
         <param name="image_width" value="640" />
         <param name="image_height" value="480" />
         <param name="framerate" value="30" />
         <param name="camera_frame_id" value="target_camera_optical_link" />
         <param name="pixel_format" value="yuyv" />
         
-        <!--param name="camera_info_url" value="file://$(find yarp5_config)/config/Sensor Specifications/Cameras/$(arg robot)_calib_params.yaml" /-->
+        <param name="camera_info_url" value="file://$(find human_detection_and_localization_config)/config/target_camera.yaml" />
         <param name="camera_name" value="target_camera"/>
     </node>
+    
+    <!-- perception -->
+    
+    <include file="$(find cob_people_object_detection_tensorflow)/launch/cob_people_object_detection_tensorflow.launch"/>
+    
+    <include file="$(find cob_people_object_detection_tensorflow)/launch/my_projection.launch"/>
+    
+    <include file="$(find cob_people_object_detection_tensorflow)/launch/data_collector.launch"/>
+    
+    <include file="$(find cob_people_object_detection_tensorflow)/launch/arrows_visualizer.launch"/>
     
     <!-- tf -->
     <node pkg="tf" type="static_transform_publisher" name="static_kinect_broadcaster" args="0 0.175 1.47 0 0 0 map camera_link 100"/>

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+
+<launch>
+  <node name="arrows_visualization" pkg="cob_people_object_detection_tensorflow" type="arrows_visualizer.py" output="screen">
+  </node>
+</launch>

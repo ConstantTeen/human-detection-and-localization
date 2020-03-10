@@ -66,7 +66,8 @@ def create_people_detection_msg(im, output_dict, category_index, bridge):
         width = int((im.width-1) * (bb[3]-bb[1]))
         height = int((im.height-1) * (bb[2]-bb[0]))
         
-        parts[cl].append( (x,y,width,height) )
+        if cl in parts.keys():
+            parts[cl].append( (x,y,width,height) )
     
     detected_people = get_body_parts_set(parts)
     

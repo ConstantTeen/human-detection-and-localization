@@ -1,0 +1,4 @@
+depth_topic: '/face_recognizer/faces/realworld/position'
+
+#output_folder_name: "$(find human_detection_and_localization_config)/datasets/"
+#output_file_name: '/home/konstantin/catkin_ws/src/human-detection-and-localization/ros_people_object_detection_tensorflow/data_set.csv'
